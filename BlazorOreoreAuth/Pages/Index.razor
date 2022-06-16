@@ -1,0 +1,43 @@
+﻿@page "/"
+@using BlazorOreoreAuth.Auth
+@using System.Security.Claims
+@inject CustomAuthenticationStateProvider _authProvider
+
+<PageTitle>Index</PageTitle>
+
+<AuthorizeView>
+    <Authorized>
+        <h1>ようこそ @context.User.Identity?.Name さん</h1>
+        <button @onclick="SignOut">ログアウト</button>
+    </Authorized>
+    <NotAuthorized>
+        <h1>ログイン画面</h1>
+
+        <input @bind="_userName" />
+        <button @onclick="SignIn">ログイン</button>
+    </NotAuthorized>
+</AuthorizeView>
+
+@code {
+    private string? _userName;
+    private async Task SignIn()
+    {
+        if (string.IsNullOrWhiteSpace(_userName)) return;
+
+        // とりあえず素直に入力された名前でログインする
+        await _authProvider.UpdateSignInStatusAsync(new ClaimsPrincipal(
+            new ClaimsIdentity(
+                new Claim[]
+                {
+                    new (ClaimTypes.Name, _userName),
+                },
+                "Custom"
+            )
+        ));
+    }
+
+    private async Task SignOut()
+    {
+        await _authProvider.UpdateSignInStatusAsync(null);
+    }
+}

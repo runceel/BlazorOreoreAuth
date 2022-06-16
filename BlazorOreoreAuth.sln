@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.2.32602.215
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BlazorOreoreAuth", "BlazorOreoreAuth\BlazorOreoreAuth.csproj", "{0E3BA1C5-5448-408E-977E-0D6D8AF269E4}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{0E3BA1C5-5448-408E-977E-0D6D8AF269E4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0E3BA1C5-5448-408E-977E-0D6D8AF269E4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0E3BA1C5-5448-408E-977E-0D6D8AF269E4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0E3BA1C5-5448-408E-977E-0D6D8AF269E4}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {1B02AA4D-A2C2-45D3-A008-7867CC0C46D5}
+	EndGlobalSection
+EndGlobal
