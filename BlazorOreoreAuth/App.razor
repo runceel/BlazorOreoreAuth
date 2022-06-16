@@ -1,4 +1,7 @@
-﻿<CascadingAuthenticationState>
+﻿@using BlazorOreoreAuth.Auth
+@inject CustomSessionStorageAuthenticationStateProvider _authProvider
+
+<CascadingAuthenticationState>
     <Router AppAssembly="@typeof(App).Assembly">
         <Found Context="routeData">
             <AuthorizeRouteView RouteData="@routeData" DefaultLayout="@typeof(MainLayout)">
@@ -16,3 +19,13 @@
         </NotFound>
     </Router>
 </CascadingAuthenticationState>
+
+@code {
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        if (firstRender)
+        {
+            await _authProvider.LoadAuthenticationStateAsync();
+        }
+    }
+}

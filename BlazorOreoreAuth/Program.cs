@@ -10,8 +10,8 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddRazorPages();
 builder.Services.AddServerSideBlazor();
 builder.Services.AddSingleton<WeatherForecastService>();
-builder.Services.AddScoped<CustomAuthenticationStateProvider>();
-builder.Services.AddScoped<AuthenticationStateProvider>(p => p.GetRequiredService<CustomAuthenticationStateProvider>());
+builder.Services.AddScoped<CustomSessionStorageAuthenticationStateProvider>();
+builder.Services.AddScoped<AuthenticationStateProvider>(p => p.GetRequiredService<CustomSessionStorageAuthenticationStateProvider>());
 
 var app = builder.Build();
 

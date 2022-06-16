@@ -7,6 +7,7 @@ public class CustomAuthenticationStateProvider : AuthenticationStateProvider
 {
     private static readonly AuthenticationState UnauthorizedAuthenticationState = new AuthenticationState(new ClaimsPrincipal());
     private ClaimsPrincipal? _principal;
+
     public override Task<AuthenticationState> GetAuthenticationStateAsync()
     {
         if (_principal is null) return Task.FromResult(UnauthorizedAuthenticationState);
